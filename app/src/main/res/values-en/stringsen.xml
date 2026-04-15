@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ethanol or Gasoline?</string>
+
+    <!-- Main screen -->
+    <string name="preco_alcool">Ethanol Price (R$)</string>
+    <string name="preco_gasolina">Gasoline Price (R$)</string>
+    <string name="calcular">Calculate</string>
+    <string name="regra_75">70% Rule</string>
+    <string name="usar_alcool">I prefer Ethanol</string>
+    <string name="usar_gasolina">I prefer Gasoline</string>
+    <string name="ver_postos">View Gas Stations List</string>
+
+    <!-- Station list -->
+    <string name="lista_postos">Gas Stations</string>
+    <string name="adicionar_posto">Add Station</string>
+    <string name="nenhum_posto">No stations registered.\nTap + to add one.</string>
+    <string name="alcool_label">Ethanol:</string>
+    <string name="gasolina_label">Gasoline:</string>
+
+    <!-- Form -->
+    <string name="novo_posto">New Station</string>
+    <string name="editar_posto">Edit Station</string>
+    <string name="nome_posto">Station Name *</string>
+    <string name="campo_obrigatorio">Required field</string>
+    <string name="localizacao">Location</string>
+    <string name="sem_localizacao">No location saved</string>
+    <string name="capturar_localizacao">Capture GPS</string>
+    <string name="salvar">Save</string>
+
+    <!-- Details -->
+    <string name="precos">Prices</string>
+    <string name="data_cadastro">Registration Date</string>
+    <string name="abrir_mapa">Open in Maps</string>
+    <string name="editar">Edit</string>
+    <string name="excluir">Delete</string>
+    <string name="cancelar">Cancel</string>
+    <string name="confirmar_exclusao">Confirm Deletion</string>
+    <string name="excluir_posto_msg">Delete station \"%1$s\"?</string>
+
+    <!-- Navigation -->
+    <string name="voltar">Back</string>
+
+    <!-- Welcome -->
+    <string name="bem_vindo">Welcome!</string>
+    <string name="imagem_boas_vindas">Welcome image</string>
+</resources>
