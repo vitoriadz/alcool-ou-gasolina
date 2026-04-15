@@ -1,3 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ExemploSimplesDeCompose</string>
+    <string name="app_name">Álcool ou Gasolina?</string>
+
+    <!-- Tela principal -->
+    <string name="preco_alcool">Preço do Álcool (R$)</string>
+    <string name="preco_gasolina">Preço da Gasolina (R$)</string>
+    <string name="calcular">Calcular</string>
+    <string name="regra_75">Regra dos 70%</string>
+    <string name="usar_alcool">Prefiro Álcool</string>
+    <string name="usar_gasolina">Prefiro Gasolina</string>
+    <string name="ver_postos">Ver Lista de Postos</string>
+
+    <!-- Lista de postos -->
+    <string name="lista_postos">Lista de Postos</string>
+    <string name="adicionar_posto">Adicionar Posto</string>
+    <string name="nenhum_posto">Nenhum posto cadastrado.\nToque em + para adicionar.</string>
+    <string name="alcool_label">Álcool:</string>
+    <string name="gasolina_label">Gasolina:</string>
+
+    <!-- Formulário -->
+    <string name="novo_posto">Novo Posto</string>
+    <string name="editar_posto">Editar Posto</string>
+    <string name="nome_posto">Nome do Posto *</string>
+    <string name="campo_obrigatorio">Campo obrigatório</string>
+    <string name="localizacao">Localização</string>
+    <string name="sem_localizacao">Sem localização salva</string>
+    <string name="capturar_localizacao">Capturar GPS</string>
+    <string name="salvar">Salvar</string>
+
+    <!-- Detalhes -->
+    <string name="precos">Preços</string>
+    <string name="data_cadastro">Data do Cadastro</string>
+    <string name="abrir_mapa">Abrir no Mapa</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="confirmar_exclusao">Confirmar Exclusão</string>
+    <string name="excluir_posto_msg">Deseja excluir o posto \"%1$s\"?</string>
+
+    <!-- Navegação -->
+    <string name="voltar">Voltar</string>
+
+    <!-- Welcome -->
+    <string name="bem_vindo">Bem-vindo!</string>
+    <string name="imagem_boas_vindas">Imagem de boas-vindas</string>
 </resources>

@@ -1,56 +1,86 @@
 package com.example.exemplosimplesdecompose
 
+import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.exemplosimplesdecompose.ui.theme.ExemploSimplesDeComposeTheme
 import com.example.exemplosimplesdecompose.view.AlcoolGasolinaPreco
-import com.example.exemplosimplesdecompose.view.InputView
+import com.example.exemplosimplesdecompose.view.DetalhesPosto
+import com.example.exemplosimplesdecompose.view.FormularioPosto
 import com.example.exemplosimplesdecompose.view.ListaDePostos
 import com.example.exemplosimplesdecompose.view.Welcome
+import com.example.exemplosimplesdecompose.viewmodel.PostoViewModel
 
 class MainActivity : ComponentActivity() {
+
+    val viewModel: PostoViewModel by viewModels()
+
+    // Solicita permissão de localização ao iniciar
+    private val locationPermissionRequest = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { /* permissões tratadas nas views */ }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        locationPermissionRequest.launch(
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        )
+
         enableEdgeToEdge()
         setContent {
             ExemploSimplesDeComposeTheme {
-                val navController: NavHostController = rememberNavController()
-                NavHost(navController = navController, startDestination = "welcome") {
-                    composable("welcome") { Welcome(navController) }
-                    composable("input") { InputView(navController) }
-                    composable("mainalcgas") { AlcoolGasolinaPreco(navController) }
-
-                }
+                AppNavigation(viewModel)
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun AppNavigation(viewModel: PostoViewModel) {
+    val navController: NavHostController = rememberNavController()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ExemploSimplesDeComposeTheme {
-        Greeting("Android")
+    NavHost(navController = navController, startDestination = "welcome") {
+        composable("welcome") {
+            Welcome(navController)
+        }
+        composable("mainalcgas") {
+            AlcoolGasolinaPreco(navController, viewModel)
+        }
+        composable("lista") {
+            ListaDePostos(navController, viewModel)
+        }
+        composable(
+            route = "formulario?postoId={postoId}",
+            arguments = listOf(navArgument("postoId") {
+                type = NavType.StringType
+                nullable = true
+                defaultValue = null
+            })
+        ) { backStack ->
+            val postoId = backStack.arguments?.getString("postoId")
+            FormularioPosto(navController, viewModel, postoId)
+        }
+        composable(
+            route = "detalhes/{postoId}",
+            arguments = listOf(navArgument("postoId") { type = NavType.StringType })
+        ) { backStack ->
+            val postoId = backStack.arguments!!.getString("postoId")!!
+            DetalhesPosto(navController, viewModel, postoId)
+        }
     }
 }
