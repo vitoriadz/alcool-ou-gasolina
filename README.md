@@ -35,6 +35,10 @@ Assista ao vídeo demonstrativo das funcionalidades:
   * 🇺🇸 **Inglês**
 * A tradução é automática com base no idioma do sistema operacional.
 
+### 5. Suporte ao Modo Escuro 
+* O aplicativo garante que as cores se adaptem automaticamente quando o usuário ativa o "Modo Escuro" no sistema Android.
+* Melhora o conforto visual em ambientes de baixa luminosidade e auxilia na economia de bateria em dispositivos com tela OLED/AMOLED.
+
 ## 🚀 Como testar o projeto
 
 1. **Clone o repositório:**
