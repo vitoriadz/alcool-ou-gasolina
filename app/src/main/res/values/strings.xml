@@ -44,4 +44,19 @@
     <!-- Welcome -->
     <string name="bem_vindo">Bem-vindo!</string>
     <string name="imagem_boas_vindas">Imagem de boas-vindas</string>
+    <string name="toque_comecar">↑ Toque para começar</string>
+
+    <!-- Resultado cálculo -->
+    <string name="preencha_valores">Preencha os valores corretamente.</string>
+    <string name="gasolina_zero">Preço da gasolina não pode ser zero.</string>
+    <string name="resultado_alcool">✅ Vale mais a pena usar Álcool (%1$s%%)</string>
+    <string name="resultado_gasolina">⛽ Vale mais a pena usar Gasolina (%1$s%%)</string>
+    <string name="switch_descricao">Álcool ou Gasolina</string>
+
+    <!-- Coordenadas -->
+    <string name="coordenadas">Lat: %1$s\nLng: %2$s</string>
+
+    <!-- InputView -->
+    <string name="digite_algo">Digite algo</string>
+    <string name="proxima_tela">Ir para a próxima tela</string>
 </resources>

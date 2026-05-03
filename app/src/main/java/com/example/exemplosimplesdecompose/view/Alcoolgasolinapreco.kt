@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.exemplosimplesdecompose.R
 import com.example.exemplosimplesdecompose.viewmodel.PostoViewModel
+import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,6 +29,8 @@ fun AlcoolGasolinaPreco(navController: NavHostController, viewModel: PostoViewMo
 
     // Switch state vem do ViewModel (persistido em SharedPreferences)
     val alcoolSelecionado by viewModel.alcoolSelecionado.collectAsState()
+
+    val context = LocalContext.current
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -115,14 +118,15 @@ fun AlcoolGasolinaPreco(navController: NavHostController, viewModel: PostoViewMo
                         val a = alcool.replace(",", ".").toDoubleOrNull()
                         val g = gasolina.replace(",", ".").toDoubleOrNull()
                         resultado = when {
-                            a == null || g == null -> "Preencha os valores corretamente."
-                            g == 0.0 -> "Preço da gasolina não pode ser zero."
+                            a == null || g == null -> context.getString(R.string.preencha_valores)
+                            g == 0.0 -> context.getString(R.string.gasolina_zero)
                             else -> {
                                 val razao = a / g
+                                val percent = String.format("%.1f", razao * 100)
                                 if (razao <= 0.7)
-                                    "✅ Vale mais a pena usar Álcool (${String.format("%.1f", razao * 100)}%)"
+                                    context.getString(R.string.resultado_alcool, percent)
                                 else
-                                    "⛽ Vale mais a pena usar Gasolina (${String.format("%.1f", razao * 100)}%)"
+                                    context.getString(R.string.resultado_gasolina, percent)
                             }
                         }
                     },
